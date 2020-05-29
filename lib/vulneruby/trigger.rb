@@ -7,4 +7,4 @@ module Vulneruby
   end
 end
 require_relative('./trigger/cmd_injection')
-require_relative('./trigger/ssrf_injection')
+require_relative('./trigger/ssrf')

@@ -5,8 +5,8 @@ require('uri')
 
 module Vulneruby
   module Trigger
-    # Invoke methods which are susceptible to SSRF Injection.
-    class SsrfInjection
+    # Invoke methods which are susceptible to SSRF.
+    class Ssrf
       # Run the Net::HTTP#get method
       #
       # @param uri [String] the fully qualified URL to attempt to call
