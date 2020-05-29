@@ -1,0 +1,72 @@
+#--------1---------2---------3---------4---------5---------6---------7---------8---------9---------0
+require:
+  - rubocop-rspec
+# The idea is to bring this file in line with the default configuration:
+# https://github.com/rubocop-hq/rubocop-rspec/blob/master/config/default.yml.
+# We're not quite at a point to do that yet.
+AllCops:
+  TargetRubyVersion: 2.5
+RSpec/AnyInstance:
+  Enabled: false
+RSpec/ContextWording:
+  Prefixes:
+    - and
+    - before
+    - but
+    - can
+    - for
+    - in
+    - is
+    - such
+    - that
+    - when    # default
+    - which
+    - while
+    - will
+    - with    # default
+    - without # default
+RSpec/DescribeClass:
+  Exclude:
+    - spec/contrast/core_extensions/assess/rules/*_spec.rb # assess rules don't have concrete classes
+    - spec/contrast/rails_extensions/**/*_spec.rb
+    - spec/contrast/sinatra_extensions/**/*_spec.rb
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/FilePath:
+  CustomTransform:
+    Activity: inventory_activity
+    AppContext: app_context
+    ApplicationSettings: application_settings
+    CmdInjection: cmd_injection
+    ContrastService: contrast_service
+    EntityWrapper: entity_wrapper
+    PreShift: preshift
+    TraceEvent: trace_event
+  Exclude:
+    - spec/contrast/core_extensions/assess/freeze_spec.rb
+    - spec/contrast/core_extensions/postgresql_spec.rb
+    - spec/contrast/core_extensions/protect/sqlite3_spec.rb
+    - spec/contrast/rack_extensions/*.rb
+    - spec/contrast/sinatra_extensions/sinatra_base_spec.rb
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Max: 22
+RSpec/NestedGroups:
+  Max: 5  # Target around 3 or 4.  Drop as we have more spec helpers. -ajm
+RSpec/VerifiedDoubles:
+  Enabled: false
+#
+# ...
+#
+# And to then enable the default disabled cops.
+# These cops are off by default, but should be audited to see if they're worth
+# enabling as they're recommended, but hard to implement or controversial.
+RSpec/DescribedClassModuleWrapping:
+  Enabled: false
+RSpec/Dialect:
+  Enabled: false
+RSpec/MessageExpectation:
+  Enabled: false
+RSpec/Pending:
+  Enabled: false
