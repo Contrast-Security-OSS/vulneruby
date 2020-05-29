@@ -12,6 +12,8 @@ module Vulneruby
       # @param uri [String] the fully qualified URL to attempt to call
       def self.run_net_get uri
         Net::HTTP.get(URI(uri))
+      rescue Errno::ECONNREFUSED
+        "#{ uri } did not respond to get request"
       end
     end
   end

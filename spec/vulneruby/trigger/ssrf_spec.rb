@@ -8,9 +8,30 @@ describe Vulneruby::Trigger::Ssrf do
   let(:uri) { 'http://foo.com?bar=baz' }
 
   describe '.run_net_get' do
-    it 'will run Net::HTTP#get' do
-      expect(Net::HTTP).to(receive(:get).with(URI(uri)))
-      described_class.run_net_get(uri)
+    context 'when the URI is valid' do
+      let(:expected) { '<html/>' }
+
+      it 'will run Net::HTTP#get' do
+        allow(Net::HTTP).to(
+            receive(:get).
+                with(URI(uri)).
+                and_return(expected))
+        result = described_class.run_net_get(uri)
+        expect(result).to(eq(expected))
+      end
+    end
+
+    context 'when the URI is invalid' do
+      let(:expected) { "#{ uri } did not respond to get request" }
+
+      it 'will run Net::HTTP#get and catch the error' do
+        expect(Net::HTTP).to(
+            receive(:get).
+                with(URI(uri)).
+                and_raise(Errno::ECONNREFUSED))
+        result = described_class.run_net_get(uri)
+        expect(result).to(eq(expected))
+      end
     end
   end
 end
