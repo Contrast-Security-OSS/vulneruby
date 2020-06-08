@@ -16,6 +16,7 @@ module Vulneruby
             "</root>\n"
       private_constant :TEST_XML
 
+      # Replaces TEST_XML content markers with the passed in string
       def self.substitute_library library_name
         TEST_XML.gsub('ent', library_name)
       end
