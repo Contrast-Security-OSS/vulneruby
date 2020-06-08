@@ -14,6 +14,7 @@ end
 # Add those dependencies required to run the project
 def self.add_dependencies spec
   spec.add_dependency('rake', '~> 12.0')
+  spec.add_dependency('nokogiri')
 end
 
 # Get all the files that belong to this Gem, using Git.

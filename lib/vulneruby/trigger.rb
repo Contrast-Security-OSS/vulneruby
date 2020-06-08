@@ -6,5 +6,6 @@ module Vulneruby
   module Trigger
   end
 end
-require_relative('./trigger/cmd_injection')
-require_relative('./trigger/ssrf')
+require_relative './trigger/cmd_injection'
+require_relative './trigger/ssrf'
+require_relative './trigger/xxe'
