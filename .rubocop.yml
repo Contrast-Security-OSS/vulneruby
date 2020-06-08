@@ -1,0 +1,44 @@
+#--------1---------2---------3---------4---------5---------6---------7---------8---------9---------0
+# The idea is to bring this file in line with the default configuration:
+# https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+# We're not quite at a point to do that yet.
+inherit_from:
+  - .rubocop-performance.yml
+  - .rubocop-rspec.yml
+AllCops:
+  EnabledByDefault: true
+  NewCops: enable
+  TargetRubyVersion: 2.5
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Layout/FirstArgumentIndentation:
+  IndentationWidth: 4
+Layout/FirstHashElementIndentation:
+  IndentationWidth: 4
+Layout/FirstParameterIndentation:
+  IndentationWidth: 4
+Layout/LineLength:
+  IgnoredPatterns:
+    - '^\s*# http' # allow URLs, standalone, in comments
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: same_line
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 4
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: same_line
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 4
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/DoubleNegation: # team prefers !!var over !var.nil? syntax, so we are leaving this cop off
+  Enabled: false
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses_except_multiline
+Style/Copyright:
+  Enabled: false

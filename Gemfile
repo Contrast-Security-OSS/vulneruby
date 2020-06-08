@@ -1,6 +1,3 @@
-source "https://rubygems.org"
-gemspec
+# frozen_string_literal: true
 
-gem "rake", "~> 12.0"
-gem "rspec", "~> 3.0"
-gem "simplecov", "~> 0.18.5"
+gemspec
