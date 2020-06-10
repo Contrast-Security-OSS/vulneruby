@@ -13,20 +13,20 @@ describe Vulneruby::Trigger::Xxe do
 
   describe '.run_nokogiri' do
     let!(:nokogiri_doc_instance) { Nokogiri::XML::Document.new }
-
+    let(:ent_name) { 'nokogiri' }
     it 'will run Nokogiri::Xml::Document#parse' do
-      content = described_class.substitute_library('nokogiri')
+      content = described_class.substitute_library(ent_name)
       allow(Nokogiri::XML::Document).to receive(:new).
           and_return(nokogiri_doc_instance)
       expect(nokogiri_doc_instance).to receive(:parse).with(content)
-      described_class.run_nokogiri
+      described_class.run_nokogiri(ent_name)
     end
 
     it 'can safely capture an exception' do
       allow(Nokogiri::XML::Document).to receive(:new).
           and_return(nokogiri_doc_instance)
       allow(nokogiri_doc_instance).to receive(:parse).and_raise(StandardError)
-      expect { described_class.run_nokogiri }.not_to raise_error
+      expect { described_class.run_nokogiri(ent_name) }.not_to raise_error
     end
   end
 end
