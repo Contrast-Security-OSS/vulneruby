@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require('net/http')
-require('uri')
+require 'net/http'
+require 'uri'
 
 module Vulneruby
   module Trigger

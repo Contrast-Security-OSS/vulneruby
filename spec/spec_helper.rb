@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require('bundler/setup')
-require('simplecov')
+require 'bundler/setup'
+require 'simplecov'
 
 SimpleCov.minimum_coverage(99)
 SimpleCov.start do
   add_filter '/spec/'
 end
 
-require('vulneruby')
+require 'vulneruby'
 
 RSpec.configure do |config|
   config.example_status_persistence_file_path = '.rspec_status'

@@ -13,6 +13,7 @@ end
 
 # Add those dependencies required to run the project
 def self.add_dependencies spec
+  spec.add_dependency('nokogiri')
   spec.add_dependency('rake', '~> 12.0')
 end
 

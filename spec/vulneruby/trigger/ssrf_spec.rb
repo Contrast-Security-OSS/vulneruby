@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require('net/http')
-require('uri')
-require('vulneruby/trigger/ssrf')
+require 'net/http'
+require 'uri'
+require 'vulneruby/trigger/ssrf'
 
 describe Vulneruby::Trigger::Ssrf do
   let(:uri) { 'http://foo.com?bar=baz' }
