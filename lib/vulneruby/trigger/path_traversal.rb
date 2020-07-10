@@ -8,11 +8,9 @@ module Vulneruby
       #
       # @param file_path [String] the file to read
       def self.run_file_read file_path
-        begin
-          File.read(file_path)
-        rescue => _e
-          'Invalid file path'
-        end
+        File.read(file_path)
+      rescue StandardError => _e
+        'Invalid file path'
       end
     end
   end

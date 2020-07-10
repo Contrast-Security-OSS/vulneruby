@@ -11,7 +11,7 @@ describe Vulneruby::Trigger::PathTraversal do
 
     it 'can catch exception' do
       expect(File).to receive(:read).and_raise(StandardError)
-      expect { described_class.run_file_read(nil) }.to_not raise_error
+      expect { described_class.run_file_read(nil) }.not_to raise_error
     end
   end
 end
