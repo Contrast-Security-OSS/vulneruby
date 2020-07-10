@@ -8,5 +8,6 @@ module Vulneruby
 end
 require_relative './trigger/cmd_injection'
 require_relative './trigger/path_traversal'
+require_relative './trigger/reflection_injection'
 require_relative './trigger/ssrf'
 require_relative './trigger/xxe'
