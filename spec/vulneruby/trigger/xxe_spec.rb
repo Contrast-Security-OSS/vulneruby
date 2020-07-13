@@ -13,7 +13,8 @@ describe Vulneruby::Trigger::Xxe do
 
   describe '.run_nokogiri' do
     let!(:nokogiri_doc_instance) { Nokogiri::XML::Document.new }
-    let(:ent_name) { 'nokogiri' }
+    let(:ent_name)               { 'nokogiri'                  }
+
     it 'will run Nokogiri::Xml::Document#parse' do
       content = described_class.substitute_library(ent_name)
       allow(Nokogiri::XML::Document).to receive(:new).
