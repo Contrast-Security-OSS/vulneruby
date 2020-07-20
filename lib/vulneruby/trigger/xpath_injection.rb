@@ -5,7 +5,7 @@ module Vulneruby
     # Invoke methods which are susceptible to XPath Injection
     class XpathInjection
       # @param xpath [String] string to inject into html
-      def self.run_xpath xpath
+      def self.run_nokogiri xpath
         doc = Nokogiri::HTML::DocumentFragment.parse <<-EOHTML
               <body>
                 <h1>dont attack me</h1>
