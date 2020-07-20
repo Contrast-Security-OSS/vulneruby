@@ -3,7 +3,7 @@
 require 'vulneruby/trigger/xpath_injection'
 
 describe Vulneruby::Trigger::XpathInjection do
-  describe '.run_xpath' do
+  describe '.run_nokogiri' do
     it 'will return a doc with the user data' do
       data = described_class.run_nokogiri('some_class')
       expect(data).to include('some_class')
