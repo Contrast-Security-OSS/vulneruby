@@ -23,8 +23,8 @@ module Vulneruby
 
       # Run the Nokogiri::XML::Document#parse method
       def self.run_nokogiri ent_name
-        doc = Nokogiri::XML::Document.new
-        doc.parse(substitute_library(ent_name))
+        doc = Nokogiri::XML::Document.parse(substitute_library(ent_name))
+        doc
       rescue StandardError => e
         puts "Unable to parse Nokogiri w/ Document: #{ e.message }"
       end
