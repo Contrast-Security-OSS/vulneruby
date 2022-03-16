@@ -13,7 +13,7 @@ end
 
 # Add those dependencies required to run the project
 def self.add_dependencies spec
-  spec.add_dependency('nokogiri', '>= 1.12.5')
+  spec.add_dependency('nokogiri', '>= 1.13.2')
   spec.add_dependency('rake', '~> 12.0')
 end
 
@@ -41,7 +41,7 @@ Gem::Specification.new do |spec|
 
   spec.homepage      = 'https://github.com/Contrast-Security-OSS/vulneruby'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.6.0')
 
   spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
 
